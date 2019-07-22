@@ -314,6 +314,7 @@ class MessageBar extends Component {
     let strokeColor
     let titleColor
     let messageColor
+    let borderRadius
 
     switch (alertType) {
       case 'success':
