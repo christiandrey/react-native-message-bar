@@ -98,35 +98,40 @@ class MessageBar extends Component {
         backgroundColor: '#007bff',
         strokeColor: '#006acd',
         titleColor: '#ffffff',
-        messageColor: '#ffffff'
+        messageColor: '#ffffff',
+        borderRadius: 0
       }, // Default are blue colors
       stylesheetSuccess: props.stylesheetSuccess ||
       def.stylesheetSuccess || {
         backgroundColor: 'darkgreen',
         strokeColor: 'darkgreen',
         titleColor: '#ffffff',
-        messageColor: '#ffffff'
+        messageColor: '#ffffff',
+        borderRadius: 0
       }, // Default are Green colors
       stylesheetWarning: props.stylesheetWarning ||
       def.stylesheetWarning || {
         backgroundColor: '#ff9c00',
         strokeColor: '#f29400',
         titleColor: '#ffffff',
-        messageColor: '#ffffff'
+        messageColor: '#ffffff',
+        borderRadius: 0
       }, // Default are orange colors
       stylesheetError: props.stylesheetError ||
       def.stylesheetError || {
         backgroundColor: '#ff3232',
         strokeColor: '#FF0000',
         titleColor: '#ffffff',
-        messageColor: '#ffffff'
+        messageColor: '#ffffff',
+        borderRadius: 0
       }, // Default are red colors
       stylesheetExtra: props.stylesheetExtra ||
       def.stylesheetExtra || {
         backgroundColor: '#007bff',
         strokeColor: '#006acd',
         titleColor: '#ffffff',
-        messageColor: '#ffffff'
+        messageColor: '#ffffff',
+        borderRadius: 0
       }, // Default are blue colors, same as info
 
       /* Duration of the animation */
@@ -316,30 +321,35 @@ class MessageBar extends Component {
         strokeColor = this.state.stylesheetSuccess.strokeColor
         titleColor = this.state.stylesheetSuccess.titleColor
         messageColor = this.state.stylesheetSuccess.messageColor
+        borderRadius = this.state.stylesheetSuccess.borderRadius
         break
       case 'error':
         backgroundColor = this.state.stylesheetError.backgroundColor
         strokeColor = this.state.stylesheetError.strokeColor
         titleColor = this.state.stylesheetError.titleColor
         messageColor = this.state.stylesheetError.messageColor
+        borderRadius = this.state.stylesheetSuccess.borderRadius
         break
       case 'warning':
         backgroundColor = this.state.stylesheetWarning.backgroundColor
         strokeColor = this.state.stylesheetWarning.strokeColor
         titleColor = this.state.stylesheetWarning.titleColor
         messageColor = this.state.stylesheetWarning.messageColor
+        borderRadius = this.state.stylesheetSuccess.borderRadius
         break
       case 'info':
         backgroundColor = this.state.stylesheetInfo.backgroundColor
         strokeColor = this.state.stylesheetInfo.strokeColor
         titleColor = this.state.stylesheetInfo.titleColor
         messageColor = this.state.stylesheetInfo.messageColor
+        borderRadius = this.state.stylesheetSuccess.borderRadius
         break
       default:
         backgroundColor = this.state.stylesheetExtra.backgroundColor
         strokeColor = this.state.stylesheetExtra.strokeColor
         titleColor = this.state.stylesheetExtra.titleColor
         messageColor = this.state.stylesheetExtra.messageColor
+        borderRadius = this.state.stylesheetSuccess.borderRadius
         break
     }
 
@@ -347,7 +357,8 @@ class MessageBar extends Component {
       backgroundColor: backgroundColor,
       strokeColor: strokeColor,
       titleColor: titleColor,
-      messageColor: messageColor
+      messageColor: messageColor,
+      borderRadius: borderRadius
     })
   }
 
@@ -443,6 +454,7 @@ class MessageBar extends Component {
           transform: this.animationTypeTransform,
           backgroundColor: this.state.backgroundColor,
           borderColor: this.state.strokeColor,
+          borderRadius: this.state.borderRadius,
           borderBottomWidth: 1,
           position: 'absolute',
           top: this.state.viewTopOffset,
@@ -495,7 +507,7 @@ class MessageBar extends Component {
           imageSource = { uri: avatar }
         } else {
           // this is a local file : require('<path/to/my/local/image.extension>')
-          imageSource = avatar
+          imageSource = require(avatar)
         }
 
         return <Image source={imageSource} style={this.state.avatarStyle} />
