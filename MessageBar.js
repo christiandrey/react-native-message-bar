@@ -463,7 +463,7 @@ class MessageBar extends Component {
           transform: this.animationTypeTransform,
           backgroundColor: this.state.backgroundColor,
           borderColor: this.state.strokeColor,
-          borderRadius: 7,
+          borderRadius: 14,
           overflow: "hidden",
           position: "absolute",
           top: this.state.viewTopOffset,
