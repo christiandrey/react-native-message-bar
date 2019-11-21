@@ -7,7 +7,6 @@
 import React, { Component } from "react";
 import { Animated, Dimensions, Image, Text, TouchableOpacity, View } from "react-native";
 
-
 let windowWidth = Dimensions.get("window").width;
 let windowHeight = Dimensions.get("window").height;
 
@@ -34,9 +33,15 @@ class MessageBar extends Component {
     this._changeOffsetByPosition(this.state.position);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps && Object.keys(nextProps).length > 0) {
-      this.setNewState(nextProps);
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps && Object.keys(nextProps).length > 0) {
+  //     this.setNewState(nextProps);
+  //   }
+  // }
+
+  componentDidUpdate(prevProps) {
+    if (this.props && Object.keys(this.props).length > 0) {
+      this.setNewState(this.props);
     }
   }
 
