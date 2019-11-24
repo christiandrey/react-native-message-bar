@@ -461,11 +461,8 @@ class MessageBar extends Component {
       <Animated.View
         style={{
           transform: this.animationTypeTransform,
-          backgroundColor: this.state.backgroundColor,
-          borderColor: this.state.strokeColor,
-          borderRadius: 21,
-          overflow: "hidden",
           position: "absolute",
+          alignItems: "center",
           top: this.state.viewTopOffset,
           bottom: this.state.viewBottomOffset,
           left: this.state.viewLeftOffset,
@@ -480,7 +477,12 @@ class MessageBar extends Component {
           onPress={() => {
             this._alertTapped();
           }}
-          style={{ flex: 1 }}
+          style={{
+            backgroundColor: this.state.backgroundColor,
+            borderColor: this.state.strokeColor,
+            borderRadius: 21,
+            overflow: "hidden"
+          }}
         >
           <View
             style={{
@@ -491,18 +493,7 @@ class MessageBar extends Component {
             }}
           >
             {this.renderImage()}
-            <View
-              style={{
-                flex: 1,
-                flexDirection: "column",
-                alignSelf: "stretch",
-                justifyContent: "center",
-                marginLeft: 10
-              }}
-            >
-              {this.renderTitle()}
-              {this.renderMessage()}
-            </View>
+            {this.renderMessage()}
           </View>
         </TouchableOpacity>
       </Animated.View>
@@ -551,7 +542,10 @@ class MessageBar extends Component {
         <Text
           key="message"
           numberOfLines={this.state.messageNumberOfLines}
-          style={[this.state.messageStyle, { color: this.state.messageColor }]}
+          style={[
+            this.state.messageStyle,
+            { color: this.state.messageColor, marginLeft: 10 }
+          ]}
         >
           {this.state.message}
         </Text>
