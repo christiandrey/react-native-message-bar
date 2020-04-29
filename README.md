@@ -46,7 +46,7 @@ Originally created by [KBLNY](https://github.com/KBLNY/) now maintained by [Talo
 ## Installation
 Make sure that you are in your React Native project directory and run:
 ```batch
-$ npm install react-native-message-bar --save
+$ npm install christiandrey/react-native-message-bar --save
 ```
 
 
